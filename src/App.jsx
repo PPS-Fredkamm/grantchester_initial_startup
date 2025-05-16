@@ -4,11 +4,12 @@ import Navbar from './components/Navbar/Navbar.jsx';
 import './App.css';
 
 function App() {
-
   return (
     <>
       <Navbar />
-      <Outlet />
+      <div style={{ paddingTop: '60px' }}>
+        <Outlet />
+      </div>
     </>
   );
 }
