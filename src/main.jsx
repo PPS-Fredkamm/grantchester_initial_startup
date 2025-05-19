@@ -16,20 +16,22 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: 'home',
-        element: (
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        ),
-      },
-      {
         path: 'login',
         element: <Login />,
       },
       {
         path: 'signup',
         element: <Signup />,
+      },
+      {
+        element: <ProtectedRoute />, // centralized check
+        children: [
+          {
+            path: 'home',
+            element: <Home />,
+          },
+          // Add more protected routes here
+        ],
       },
     ],
   },
