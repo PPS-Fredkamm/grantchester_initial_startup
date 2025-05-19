@@ -7,7 +7,7 @@ function Signup() {
 
   const handleLogin = () => {
     login(); // sets isAuthenticated to true
-    navigate('/home'); // navigate to protected page
+    navigate('/'); // navigate to protected page
   };
 
   const handleLogout = () => {
@@ -17,7 +17,7 @@ function Signup() {
 
   return (
     <div>
-      <h2>Login Page</h2>
+      <h2>Signup Page</h2>
       <button onClick={handleLogin}>Mock Login</button>
       <button onClick={handleLogout}>Mock Logout</button>
     </div>

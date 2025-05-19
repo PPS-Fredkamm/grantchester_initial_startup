@@ -1,13 +1,17 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
 import App from './App';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import ErrorPage from './components/ErrorPage';
 import ProtectedRoute from './Data/ProtectedRoutes';
+
 import { UserProvider } from './Data/UserContext';
+
+import './App.css';
 
 const router = createBrowserRouter([
   {
@@ -24,10 +28,10 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        element: <ProtectedRoute />, // centralized check
+        element: <ProtectedRoute />,
         children: [
           {
-            path: 'home',
+            path: '/',
             element: <Home />,
           },
           // Add more protected routes here

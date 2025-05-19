@@ -7,7 +7,7 @@ export default function Login() {
 
   const handleLogin = () => {
     login();         // sets isAuthenticated to true
-    navigate('/home'); // navigate to protected page
+    navigate('/'); // navigate to protected page
   };
 
    const handleLogout = () => {
