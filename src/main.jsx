@@ -12,6 +12,7 @@ import ProtectedRoute from './Data/ProtectedRoutes';
 import { UserProvider } from './Data/UserContext';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
