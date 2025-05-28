@@ -10,10 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "all": "^0.0.0",
     "express": "^5.1.0",
     "grantchester-initial-startup": "file:",
+=======
+    "bootstrap": "^5.3.6",
+>>>>>>> 900654568032fc074fd26cccceeb86949ddcaaec
     "react": "^19.1.0",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0"
   },
