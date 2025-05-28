@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "all": "^0.0.0",
+    "express": "^5.1.0",
+    "grantchester-initial-startup": "file:",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0"
