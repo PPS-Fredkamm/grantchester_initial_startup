@@ -4,33 +4,32 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 
+import ProfilePlaceholder from '../../assets/Images/profilePlaceholder.jpg';
+
 import { useUser } from '../../Data/UserContext';
-
-import ProfilePlaceholder from '../../assets/Images/profilePlaceholder.jpg'// adjust if needed
-
 import './Navbar.css';
 
 function CustomNavbar() {
   const { isAuthenticated, logout } = useUser();
 
+  // Placeholder data — eventually pulled from real user object
+  const user = {
+    name: 'username',
+    email: 'username@example.com',
+    profileImg: ProfilePlaceholder,
+  };
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary px-3">
       <Container fluid>
-        {/* Left side: Brand + dropdown */}
         <Navbar.Brand href="/">Alumbiz</Navbar.Brand>
         <Nav className="me-auto">
           <NavDropdown title="Menu" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/2">Another action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/4">Separated link</NavDropdown.Item>
+            <NavDropdown.Item href="#">Action</NavDropdown.Item>
           </NavDropdown>
         </Nav>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-        {/* Right side */}
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
             {!isAuthenticated ? (
@@ -43,7 +42,7 @@ function CustomNavbar() {
                 align="end"
                 title={
                   <Image
-                    src={ProfilePlaceholder}
+                    src={user.profileImg}
                     roundedCircle
                     width={40}
                     height={40}
@@ -52,9 +51,20 @@ function CustomNavbar() {
                   />
                 }
                 id="profile-dropdown"
+                className="profile-dropdown"
               >
-                <NavDropdown.Item href="/profile">View Profile</NavDropdown.Item>
-                <NavDropdown.Divider />
+                <div className="profile-card">
+                  <Image
+                    src={user.profileImg}
+                    className="profile-card-img"
+                    alt="Profile"
+                  />
+                  <div className="profile-card-info">
+                    <strong>{user.name}</strong>
+                    <div className="text-muted">{user.email}</div>
+                  </div>
+                </div>
+                <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
                 <NavDropdown.Item onClick={logout}>Sign Out</NavDropdown.Item>
               </NavDropdown>
             )}
