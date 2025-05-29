@@ -5,43 +5,45 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 
 import ProfilePlaceholder from '../../assets/Images/profilePlaceholder.jpg';
+import grantchester from '../../assets/Images/grantchester.png'
 
 import { useUser } from '../../Data/UserContext';
 import './Navbar.css';
-import React, { useState } from 'react';
 
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+// import React, { useState } from 'react';
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+// function Navbar() {
+//   const [menuOpen, setMenuOpen] = useState(false);
 
-  return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-brand">
-        Alumbiz
-      </Link>
+//   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+//   return (
+//     <nav className="navbar">
+//       <Link to="/" className="navbar-brand">
+//         Alumbiz
+//       </Link>
 
       
-      <div className="navbar-links">
-        <Link to="/login" className="btn-signin">Sign in</Link>
-        <Link to="/signup" className="btn-signup">Sign up</Link>
-          <div className="hamburger">☰</div>
-      </div>
+//       <div className="navbar-links">
+//         <Link to="/login" className="btn-signin">Sign in</Link>
+//         <Link to="/signup" className="btn-signup">Sign up</Link>
+//           <div className="hamburger">☰</div>
+//       </div>
 
-      {/* ✅ Move hamburger here */}
-  <div className="dropdown-container">
-    <div className="hamburger" onClick={toggleMenu}>
-      TEST
-    </div>
-    {menuOpen && (
-      <div className="dropdown-menu">
-        <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
-        <Link to="/settings" onClick={() => setMenuOpen(false)}>Settings</Link>
-        <Link to="/logout" onClick={() => setMenuOpen(false)}>Log Out</Link>
-      </div>
-    )}
-  </div>
-</nav>
+//       {/* ✅ Move hamburger here */}
+//   <div className="dropdown-container">
+//     <div className="hamburger" onClick={toggleMenu}>
+//       TEST
+//     </div>
+//     {menuOpen && (
+//       <div className="dropdown-menu">
+//         <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
+//         <Link to="/settings" onClick={() => setMenuOpen(false)}>Settings</Link>
+//         <Link to="/logout" onClick={() => setMenuOpen(false)}>Log Out</Link>
+//       </div>
+//     )}
+//   </div>
+// </nav>
 function CustomNavbar() {
   const { isAuthenticated, logout } = useUser();
 
@@ -53,9 +55,17 @@ function CustomNavbar() {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary px-3">
+    <Navbar expand="lg" className="navbar-styling px-3">
       <Container fluid>
-        <Navbar.Brand href="/">Alumbiz</Navbar.Brand>
+        <Navbar.Brand href="https://alumbiz.com" target="_blank" rel="noopener noreferrer">
+  <img
+    src={grantchester}
+    alt="Alumbiz Logo"
+    height="40"
+    style={{ objectFit: 'contain' }}
+  />
+</Navbar.Brand>
+
         <Nav className="me-auto">
           <NavDropdown title="Menu" id="basic-nav-dropdown">
             <NavDropdown.Item href="#">Action</NavDropdown.Item>
@@ -65,6 +75,12 @@ function CustomNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
+            <Nav.Link href="/Why Donate Stock" className="nav-button">Why Donate Stock</Nav.Link>
+             <Nav.Link href="/For Donors" className="nav-button">For Donors</Nav.Link>
+             <Nav.Link href="/Universities" className="nav-button">Universities</Nav.Link>
+             <Nav.Link href="/Partners" className="nav-button">Partners</Nav.Link>
+             <Nav.Link href="/Resources" className="nav-button">Resources</Nav.Link>
+
             {!isAuthenticated ? (
               <>
                 <Nav.Link href="/login">Login</Nav.Link>
@@ -107,5 +123,6 @@ function CustomNavbar() {
     </Navbar>
   );
 }
+
 
 export default CustomNavbar;

@@ -1,3 +1,26 @@
+/* adding navbar changes here. */
+.navbar-styling {
+  background-color:#26303c   !important;
+}
+  .navbar-styling .navbar-brand,
+.navbar-styling .nav-link {
+  color: rgb(255, 255, 255) !important;
+}
+/* button link style */
+.nav-button {
+  margin-right: 10;
+  font-weight: 500;
+  color: #ffffff !important;
+  background-color: transparent;
+  border: none;
+  transition: color 0.2s ease;
+}
+
+.nav-button:hover {
+  color: #f0ad4e !important;
+  text-decoration: underline;
+}
+
 /* Dropdown menu style */
 .profile-dropdown .dropdown-menu {
   width: 280px;
