@@ -1,24 +1,31 @@
-/* adding navbar changes here. */
-.navbar-styling {
-  background-color:#26303c   !important;
-}
-  .navbar-styling .navbar-brand,
-.navbar-styling .nav-link {
-  color: rgb(255, 255, 255) !important;
-}
-/* button link style */
-.nav-button {
-  margin-right: 10;
-  font-weight: 500;
-  color: #ffffff !important;
-  background-color: transparent;
-  border: none;
-  transition: color 0.2s ease;
+.nav-center .nav-link {
+  margin: 0 1.5rem;
+  color: black
 }
 
-.nav-button:hover {
-  color: #f0ad4e !important;
-  text-decoration: underline;
+.donate-button {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.donate-heart-icon {
+  color: white;
+  font-size: 0.7rem;
+  margin-right: 0.5rem;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: #6c757d;
+  white-space: nowrap;
+  margin-top: -2px;
 }
 
 /* Dropdown menu style */
