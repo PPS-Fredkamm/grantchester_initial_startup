@@ -4,6 +4,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
+import { FaHeart } from 'react-icons/fa';
 
 import ProfilePlaceholder from '../../assets/Images/profilePlaceholder.jpg';
 
@@ -68,9 +72,25 @@ function CustomNavbar() {
             <Nav.Link href="/link">Partners</Nav.Link>
             <Nav.Link href="/link">Resources</Nav.Link>
             <Nav.Link href="/link">Partners</Nav.Link>
-            {/* <NavDropdown title="Menu" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#">Action</NavDropdown.Item>
-            </NavDropdown> */}
+
+            {!isAuthenticated && (
+              <>
+                <Nav.Link href="/signup">Sign In</Nav.Link>
+                <OverlayTrigger
+                  placement="bottom"
+                  overlay={<Tooltip id="donate-tooltip">Donate</Tooltip>}
+                >
+                  <Button
+                    href="/donate"
+                    variant="primary"
+                    className="donate-button"
+                  >
+                    <FaHeart className="donate-heart-icon" />
+                    Donate Shares
+                  </Button>
+                </OverlayTrigger>
+              </>
+            )}
           </Nav>
 
           {/* Right-aligned user profile */}
@@ -78,52 +98,46 @@ function CustomNavbar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav>
-                {!isAuthenticated ? (
-                  <>
-                    <Button
-                      href="/donate"
-                      variant="primary"
-                      className="donate-button"
-                    >
-                      Donate Shares
-                    </Button>
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/signup">Signup</Nav.Link>
-                  </>
-                ) : (
-                  <NavDropdown
-                    align="end"
-                    title={
-                      <Image
-                        src={user.profileImg}
-                        roundedCircle
-                        width={40}
-                        height={40}
-                        alt="Profile"
-                        className="profile-icon"
-                      />
-                    }
-                    id="profile-dropdown"
-                    className="profile-dropdown"
-                  >
-                    <div className="profile-card">
-                      <Image
-                        src={user.profileImg}
-                        className="profile-card-img"
-                        alt="Profile"
-                      />
-                      <div className="profile-card-info">
-                        <strong>{user.name}</strong>
-                        <div className="text-muted">{user.email}</div>
-                      </div>
+                {isAuthenticated && (
+                  <div className="d-flex align-items-center gap-2">
+                    <div className="d-flex flex-column text-end">
+                      <span className="user-email">{user.email}</span>
+                      <span className="user-role">Type of Account</span>
                     </div>
-                    <NavDropdown.Item href="/profile">
-                      My Profile
-                    </NavDropdown.Item>
-                    <NavDropdown.Item onClick={logout}>
-                      Sign Out
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                    <NavDropdown
+                      align="end"
+                      title={
+                        <Image
+                          src={user.profileImg}
+                          roundedCircle
+                          width={40}
+                          height={40}
+                          alt="Profile"
+                          className="profile-icon"
+                        />
+                      }
+                      id="profile-dropdown"
+                      className="profile-dropdown"
+                    >
+                      <div className="profile-card">
+                        <Image
+                          src={user.profileImg}
+                          className="profile-card-img"
+                          alt="Profile"
+                        />
+                        <div className="profile-card-info">
+                          <strong>{user.name}</strong>
+                          <div className="text-muted">{user.email}</div>
+                        </div>
+                      </div>
+                      <NavDropdown.Item href="/profile">
+                        My Profile
+                      </NavDropdown.Item>
+                      <NavDropdown.Item onClick={logout}>
+                        Sign Out
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </div>
                 )}
               </Nav>
             </Navbar.Collapse>
