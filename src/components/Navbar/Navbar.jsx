@@ -22,6 +22,7 @@ function CustomNavbar() {
     name: 'username',
     email: 'username@example.com',
     profileImg: ProfilePlaceholder,
+    role: 'Admin', // Replace this with dynamic role if available
   };
 
   return (
@@ -61,7 +62,7 @@ function CustomNavbar() {
           </Nav>
 
           {/* Right-aligned user profile */}
-          <div>
+          <div className="d-flex align-items-center">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav>
@@ -69,7 +70,7 @@ function CustomNavbar() {
                   <div className="d-flex align-items-center gap-2">
                     <div className="d-flex flex-column text-end">
                       <span className="user-email">{user.email}</span>
-                      <span className="user-role">Type of Account</span>
+                      <span className="user-role">{user.role}</span>
                     </div>
                     <NavDropdown
                       align="end"
