@@ -22,7 +22,7 @@ function CustomNavbar() {
     name: 'username',
     email: 'username@example.com',
     profileImg: ProfilePlaceholder,
-    role: 'Admin', // Replace this with dynamic role if available
+    role: 'Admin',
   };
 
   return (
