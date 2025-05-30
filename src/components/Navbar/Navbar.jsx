@@ -99,7 +99,7 @@ function CustomNavbar() {
                         </div>
                       </div>
                       <NavDropdown.Item href="/profile">
-                        My Profile
+                        Profile
                       </NavDropdown.Item>
                       <NavDropdown.Item onClick={logout}>
                         Sign Out
