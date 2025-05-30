@@ -8,7 +8,7 @@ import './Navbar.css';
 
 function CustomNavbar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary px-3">
+    <Navbar expand="lg" className="navbar-styling px-3">
       <Container fluid>
         <div className="d-flex w-100 justify-content-between align-items-center">
           {/* Left-aligned brand */}
@@ -26,5 +26,6 @@ function CustomNavbar() {
     </Navbar>
   );
 }
+
 
 export default CustomNavbar;
